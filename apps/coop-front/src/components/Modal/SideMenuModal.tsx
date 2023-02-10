@@ -1,8 +1,10 @@
+/** @jsxImportSource @emotion/react */
 import { Box, Flex } from "@chakra-ui/react";
 import { css } from "@emotion/react";
 import MuteButton from "@components/Button/MuteButton";
 import SideModalPortal from "./SideModalPortal";
 import ToggleThemeButton from "@components/Button/ToggleThemeButton";
+import LanguageButton from "@components/Button/LanguageButton";
 
 const SideMenuModal = () => {
   return (
@@ -19,6 +21,7 @@ const SideMenuModal = () => {
         >
           <MuteButton />
           <ToggleThemeButton />
+          <LanguageButton />
         </Flex>
       </SideModalPortal>
     </>
