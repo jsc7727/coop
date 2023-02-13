@@ -66,7 +66,7 @@ export const LobbyMain = () => {
   const lobbyToastInviteDescription = t("lobby.toast.invite.description");
   const toast = useToast();
   useCheckCreatedProvider(
-    "/ErrorPage/?errorMessage=잘못된 접근입니다.&statusCode=403"
+    "/ErrorPage/?statusCode=403"
   );
   const { roomId } = useRecoilValue(userSelector) ?? {};
   const { isOwner, userProfiles } = useRecoilValue(userProfilesSelector);
@@ -109,7 +109,7 @@ export const LobbyMain = () => {
 
   const onClickInviteHandler = () => {
     navigator.clipboard.writeText(
-      `${process.env.NEXT_PUBLIC_HOSTNAME}/?roomId=${roomId}`
+      `${process.env.NEXT_PUBLIC_HOSTNAME}/games/?roomId=${roomId}`
     );
     toast({
       title: lobbyToastInviteTitle,
@@ -126,7 +126,7 @@ export const LobbyMain = () => {
         isGameStart: true,
         gamePagesIndex: 0,
         gameType: "DRAWEE",
-        path: "/start",
+        path: "/games/drawee/start",
       };
       changeGameStateHandler(partialDrawee);
     }
