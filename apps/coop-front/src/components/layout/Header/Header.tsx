@@ -1,5 +1,6 @@
 import { Badge, Flex } from "@chakra-ui/react";
 import { yjsGameState } from "@common/recoil/recoil.atom";
+import { providerState } from "@common/yjsStore/userStore";
 import Logo from "@components/Animation/Logo/Logo";
 import ChattingModal from "@components/Modal/ChattingModal";
 import SideMenuModal from "@components/Modal/SideMenuModal";
@@ -56,7 +57,16 @@ const Header = () => {
           }
         `}
       >
-        <Logo color={"#721480"}></Logo>
+        <Logo
+          color={"#721480"}
+          onClickHandler={() => {
+            const confirm = window.confirm(t("backspace"));
+            if (confirm === true) {
+              providerState.clearProvider();
+              window.location.href = "/games";
+            }
+          }}
+        ></Logo>
       </Flex>
       <Flex
         css={css`
